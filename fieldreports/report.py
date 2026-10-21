@@ -1,14 +1,13 @@
 """Builds the weekly report: one row per project, indicator and week."""
 
 from dataclasses import dataclass, field
-from datetime import date, timedelta
+from datetime import timedelta
 
 import requests
 
 from fieldreports.counting import count_attachments, count_forms
 
-FORMS_SINCE = date(2026, 9, 12)
-ATTACHMENT_LOOKBACK_DAYS = 8
+LOOKBACK_DAYS = 14
 
 
 @dataclass
@@ -27,11 +26,11 @@ class Report:
 
 def build_report(client, today):
     report = Report()
-    attachments_since = today - timedelta(days=ATTACHMENT_LOOKBACK_DAYS)
+    since = today - timedelta(days=LOOKBACK_DAYS)
     for project in client.projects():
         try:
-            forms = client.forms(project["id"], FORMS_SINCE)
-            attachments = client.attachments(project["id"], attachments_since)
+            forms = client.forms(project["id"], since)
+            attachments = client.attachments(project["id"], since)
         except requests.HTTPError:
             continue
         counts = count_forms(forms) + count_attachments(attachments)

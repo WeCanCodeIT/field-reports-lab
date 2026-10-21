@@ -25,8 +25,12 @@ class CrewbookClient:
         return response.json()
 
     def _get_all(self, path, params=None):
-        params = dict(params or {}, per_page=PAGE_SIZE, page=1)
-        return self._get(path, params)["items"]
+        items, page = [], 1
+        while page is not None:
+            data = self._get(path, dict(params or {}, per_page=PAGE_SIZE, page=page))
+            items.extend(data["items"])
+            page = data.get("next_page")
+        return items
 
     def projects(self):
         return self._get_all("/projects")
