@@ -1,5 +1,6 @@
 """Rules for what counts as evidence of each weekly indicator, and which week it lands in."""
 
+import re
 from collections import Counter
 from datetime import date
 
@@ -7,9 +8,13 @@ FORM_INDICATORS = ["Daily Report", "Safety Checklist"]
 FOLDER_INDICATORS = ["Two Week Look Ahead", "Toolbox Talk"]
 
 
+def _normalize(name):
+    return re.sub(r"[^a-z0-9]+", " ", name.casefold()).strip()
+
+
 def form_indicator(template_name):
     for indicator in FORM_INDICATORS:
-        if indicator in template_name:
+        if _normalize(indicator) in _normalize(template_name):
             return indicator
     return None
 
