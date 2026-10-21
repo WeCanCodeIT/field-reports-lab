@@ -32,6 +32,7 @@ def build_report(client, today):
             forms = client.forms(project["id"], since)
             attachments = client.attachments(project["id"], since)
         except requests.HTTPError:
+            report.skipped.append(project["name"])
             continue
         counts = count_forms(forms) + count_attachments(attachments)
         for (indicator, week), count in sorted(counts.items()):
