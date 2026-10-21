@@ -1,0 +1,3 @@
+# The module you are working on. Raise it as you move through the course.
+# CI runs `python labcheck.py current`, which checks every module up to this one.
+module = 1

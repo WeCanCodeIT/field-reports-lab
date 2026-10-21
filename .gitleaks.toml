@@ -1,0 +1,13 @@
+# The lab's own secret-scanning rule. The seeded key in fieldreports/config.py is fake and matches
+# no real provider's pattern, so GitHub never blocks a push. This rule exists so the lab's CI can
+# catch it, the way a real scanner would catch a real key.
+title = "field-reports-lab"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "crewbook-api-key"
+description = "Crewbook API key (fake, seeded for the lab)"
+regex = '''crewbook_live_[0-9a-f]{32}'''
+keywords = ["crewbook_live_"]

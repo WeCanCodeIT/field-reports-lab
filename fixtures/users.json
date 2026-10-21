@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "project_id": 101,
+    "name": "Avery Park",
+    "email": "avery.park@example.com",
+    "role": "superintendent"
+  },
+  {
+    "id": 2,
+    "project_id": 101,
+    "name": "Jordan Lee",
+    "email": "jordan.lee@example.com",
+    "role": "project engineer"
+  },
+  {
+    "id": 3,
+    "project_id": 102,
+    "name": "Riley Chen",
+    "email": "riley.chen@example.com",
+    "role": "superintendent"
+  },
+  {
+    "id": 4,
+    "project_id": 102,
+    "name": "Morgan Diaz",
+    "email": "morgan.diaz@example.com",
+    "role": "project engineer"
+  },
+  {
+    "id": 5,
+    "project_id": 103,
+    "name": "Casey Brooks",
+    "email": "casey.brooks@example.com",
+    "role": "superintendent"
+  },
+  {
+    "id": 6,
+    "project_id": 103,
+    "name": "Taylor Nguyen",
+    "email": "taylor.nguyen@example.com",
+    "role": "project engineer"
+  },
+  {
+    "id": 7,
+    "project_id": 103,
+    "name": "Jamie Ortiz",
+    "email": "jamie.ortiz@example.com",
+    "role": "project manager"
+  }
+]
