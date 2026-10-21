@@ -45,4 +45,4 @@ class CrewbookClient:
         return self._get_all(f"/projects/{project_id}/forms", {"since": since.isoformat()})
 
     def attachments(self, project_id, since):
-        return self._get_all("/attachments", {"since": since.isoformat()})
+        return self._get_all("/attachments", {"since": since.isoformat(), "project_id": project_id})
