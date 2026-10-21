@@ -27,7 +27,8 @@ def folder_indicator(folder_name):
 
 
 def week_label(day):
-    return f"{day:%b}-W{day.isocalendar().week:02d}"
+    iso = day.isocalendar()
+    return f"{iso.year}-W{iso.week:02d}"
 
 
 def count_forms(forms):
